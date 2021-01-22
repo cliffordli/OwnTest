@@ -22,37 +22,23 @@ namespace RussianDoll2
             {
                 Console.WriteLine(envelopes[i][0] + "," + envelopes[i][1]);
             }
-            Array.Sort(envelopes, new Comparison<int[]>(
-                (x,y) => {
-                    if (x[0] > y[0])
-                    {
-                        return 1;
-                    }
 
-                    if (x[0] == y[0])
-                    {
-                        return x[1] > y[1] ? -1 : (x[1] < y[1] ? 1 : 0);
-                    }
+            int comparebyrule(int[] x, int[] y)
+            {
+               if (x[0] > y[0])
+               {
+                   return 1;
+               }
 
-                    return -1;  }
-            ));
+               if (x[0] == y[0])
+               {
+                   return x[1] > y[1] ? -1 : (x[1] < y[1] ? 1 : 0);
+               }
 
-            //int CompareByRule(int[] x, int[] y)
-            //{
-            //    if (x[0] > y[0])
-            //    {
-            //        return 1;
-            //    }
+               return -1;
 
-            //    if (x[0] == y[0])
-            //    {
-            //        return x[1] > y[1] ? -1 : (x[1] < y[1] ? 1 : 0);
-            //    }
-
-            //    return -1;
-
-            //}
-            //Array.Sort(envelopes, CompareByRule);
+            }
+            array.sort(envelopes, comparebyrule);
 
 
             for (int i = 0; i < envelopes.Length; i++)
